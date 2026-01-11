@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SBC Ghost Hosting - 나만의 서버 운영 전문가</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* 커스텀 스타일 */
+    ::selection {
+      background-color: rgba(16, 185, 129, 0.3);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#0b1020] text-slate-100">
+  <!-- 배경 장식 -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-emerald-500/10 blur-[120px] rounded-full"></div>
+    <div class="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-blue-500/10 blur-[120px] rounded-full"></div>
+  </div>
+
+  <!-- 헤더 -->
+  <header class="sticky top-0 z-50 border-b border-white/5 bg-[#0b1020]/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3 group cursor-pointer" onclick="tciScrollToTop()">
+        <div class="w-10 h-10 bg-emerald-400 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-400/20 group-hover:rotate-12 transition-transform">
+          <i data-lucide="server" class="text-slate-900 w-6 h-6"></i>
+        </div>
+        <span class="text-xl font-black tracking-tighter">SBC GHOST</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+        <a href="#features" class="hover:text-emerald-400 transition-colors">특징</a>
+        <a href="#themes" class="hover:text-emerald-400 transition-colors">테마</a>
+        <a href="#pricing" class="hover:text-emerald-400 transition-colors">가격</a>
+        <a href="#faq" class="hover:text-emerald-400 transition-colors">FAQ</a>
+      </nav>
+      <button 
+        onclick="tciScrollToContact()"
+        class="hidden sm:block px-6 py-2.5 bg-emerald-400 text-slate-900 rounded-full font-bold text-sm hover:bg-emerald-300 transition-colors shadow-lg shadow-emerald-400/10"
+      >
+        상담 시작하기
+      </button>
+    </div>
+  </header>
+
+  <!-- 히어로 섹션 -->
+  <section class="relative pt-20 pb-32 px-6">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <div class="space-y-8">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border border-emerald-400/30 bg-emerald-400/10 text-emerald-300">
+          내 보드, 내 도메인 완벽 소유
+        </span>
+        <h1 class="text-5xl md:text-7xl font-black leading-tight tracking-tight">
+          매월 <span class="text-emerald-400">1만원</span>으로<br />
+          나만의 서버 운영을<br />
+          전문가에게 맡기세요.
+        </h1>
+        <p class="text-xl text-slate-400 max-w-lg leading-relaxed">
+          30만원으로 SBC 서버와 도메인을 영구 소유하고, 복잡한 업데이트와 보안은 저희가 책임집니다. Cloudflare 기반의 압도적인 성능을 경험하세요.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <button 
+            onclick="tciScrollToPricing()"
+            class="px-8 py-4 bg-emerald-400 text-slate-900 rounded-2xl font-black text-lg hover:scale-105 transition-transform"
+          >
+            가격 요금제 보기
+          </button>
+          <button 
+            onclick="tciScrollToContact()"
+            class="px-8 py-4 bg-white/5 border border-white/10 rounded-2xl font-black text-lg hover:bg-white/10 transition-colors"
+          >
+            1:1 문의하기
+          </button>
+        </div>
+      </div>
+      
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-emerald-400 to-blue-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+        <div class="relative bg-slate-900 border border-white/10 p-8 rounded-3xl overflow-hidden">
+          <div class="flex items-center justify-between mb-8">
+            <div class="flex gap-2">
+              <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+            </div>
+            <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">Network Architecture</div>
+          </div>
+          <div class="space-y-6">
+            <div class="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/5">
+              <div class="flex items-center gap-3">
+                <i data-lucide="globe" class="w-5 h-5 text-emerald-400"></i>
+                <span class="text-sm font-medium">Public Domain</span>
+              </div>
+              <div class="flex gap-1">
+                <div class="w-1 h-4 bg-emerald-400/20 rounded"></div>
+                <div class="w-1 h-4 bg-emerald-400 rounded"></div>
+                <div class="w-1 h-4 bg-emerald-400/40 rounded"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-center py-2">
+              <div class="h-12 w-px bg-gradient-to-b from-emerald-400 to-transparent"></div>
+            </div>
+            <div class="p-4 bg-emerald-400/5 rounded-xl border border-emerald-400/20 flex flex-col items-center gap-2">
+              <i data-lucide="shield-check" class="w-8 h-8 text-emerald-400"></i>
+              <span class="text-xs font-bold text-emerald-400">Cloudflare WAF / SSL</span>
+            </div>
+            <div class="flex items-center justify-center py-2">
+              <div class="h-12 w-px bg-gradient-to-b from-emerald-400 to-blue-500"></div>
+            </div>
+            <div class="p-4 bg-blue-500/5 rounded-xl border border-blue-500/20 flex justify-between items-center">
+              <div class="flex items-center gap-3">
+                <i data-lucide="server" class="w-5 h-5 text-blue-400"></i>
+                <span class="text-sm font-medium">Your SBC Node</span>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border border-blue-400/30 bg-blue-400/10 text-blue-400 font-mono">192.168.x.x</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 특징 섹션 -->
+  <section id="features" class="py-24 bg-slate-900/30 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-5xl font-black mb-4 underline decoration-emerald-400 decoration-4 underline-offset-8">SBC Ghost만의 핵심 가치</h2>
+        <p class="text-slate-400">최신 하드웨어와 클라우드 기술의 완벽한 조화</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-slate-900/50 border border-white/5 rounded-2xl p-6 hover:border-emerald-400/30 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-emerald-400/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="user" class="w-6 h-6 text-emerald-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">진짜 내 서버</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">30만원으로 기기를 직접 소유하세요. 임대가 아닌 소유로 데이터 주권을 보장받습니다. 원할 땐 언제든 반출 가능합니다.</p>
+        </div>
+        <div class="bg-slate-900/50 border border-white/5 rounded-2xl p-6 hover:border-emerald-400/30 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-emerald-400/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="shield-check" class="w-6 h-6 text-emerald-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Cloudflare 보호</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">공격으로부터 원본 IP를 숨기고 세계 최고 수준의 DDOS 방어와 무료 SSL을 제공합니다.</p>
+        </div>
+        <div class="bg-slate-900/50 border border-white/5 rounded-2xl p-6 hover:border-emerald-400/30 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-emerald-400/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="zap" class="w-6 h-6 text-emerald-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">압도적 체감 속도</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">클라우드플레어 엣지 네트워크를 통한 정적 자산 캐싱으로 전 세계 어디서나 빠른 접속이 가능합니다.</p>
+        </div>
+        <div class="bg-slate-900/50 border border-white/5 rounded-2xl p-6 hover:border-emerald-400/30 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-emerald-400/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="settings" class="w-6 h-6 text-emerald-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">전문가 운영 대행</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">보안 패치, 엔진 업데이트, 백업 관리를 월 1만원에 해결하세요. 당신은 콘텐츠에만 집중하면 됩니다.</p>
+        </div>
+        <div class="bg-slate-900/50 border border-white/5 rounded-2xl p-6 hover:border-emerald-400/30 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-emerald-400/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="trending-up" class="w-6 h-6 text-emerald-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">수익 모델 최적화</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">구글 애드센스, 쿠팡 파트너스 등 다양한 제휴 마케팅을 즉시 적용할 수 있도록 세팅을 지원합니다.</p>
+        </div>
+        <div class="bg-slate-900/50 border border-white/5 rounded-2xl p-6 hover:border-emerald-400/30 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-emerald-400/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="message-square" class="w-6 h-6 text-emerald-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">상태 정보 알림</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">서버의 상태와 트래픽 현황을 텔레그램을 통해 실시간으로 받아보실 수 있습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 테마 갤러리 -->
+  <section id="themes" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <h2 class="text-3xl md:text-5xl font-black mb-4">테마 갤러리</h2>
+          <p class="text-slate-400">Ghost 공식 추천 테마를 무료로 적용해 드립니다.</p>
+        </div>
+        <a href="https://ghost.org/themes/" target="_blank" class="text-emerald-400 font-bold flex items-center gap-2 hover:underline">
+          더 많은 테마 보기 <i data-lucide="external-link" class="w-4 h-4"></i>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="themes-container">
+        <!-- 테마 카드들이 JavaScript로 동적 생성됩니다 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 가격 섹션 -->
+  <section id="pricing" class="py-24 px-6 bg-slate-900/50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 space-y-4">
+        <h2 class="text-3xl md:text-5xl font-black">투명하고 합리적인 비용</h2>
+        <p class="text-slate-400">초기 구축 이후에는 부담 없는 월 비용으로 운영하세요.</p>
+        <p class="text-xs text-slate-500 italic">* SBC는 하드커널사의 검증된 고성능 보드를 사용합니다.</p>
+      </div>
+      <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+        <!-- 초기 세팅 카드 -->
+        <div class="relative p-8 rounded-3xl flex flex-col h-full transition-all duration-300 bg-slate-900/50 border border-white/10 hover:border-white/20">
+          <div class="mb-6">
+            <h3 class="text-emerald-400 font-bold mb-2">초기 세팅 (필수)</h3>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-black">30만원</span>
+            </div>
+            <p class="text-slate-400 text-sm mt-2">카드 결제 가능 · 일회성</p>
+          </div>
+          <ul class="space-y-4 mb-8 flex-grow">
+            <li class="flex items-start gap-3 text-sm text-slate-200">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+              SBC 하드웨어 구매 대행
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-200">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+              OS 및 Ghost 최적화 설치
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-200">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+              Cloudflare 보안/DNS 세팅
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-200">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+              기본 테마 및 Mailgun 연동
+            </li>
+          </ul>
+          <button 
+            onclick="tciScrollToContact()"
+            class="w-full py-4 rounded-xl font-bold transition-all bg-white/10 text-white hover:bg-white/20"
+          >
+            상담 후 시작하기
+          </button>
+        </div>
+        <!-- 위탁 관리 서비스 카드 -->
+        <div class="relative p-8 rounded-3xl flex flex-col h-full transition-all duration-300 bg-slate-800 ring-2 ring-emerald-400 shadow-2xl scale-105 z-10">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-emerald-400 text-slate-900 text-xs font-black px-4 py-1 rounded-full uppercase tracking-wider">Most Popular</div>
+          <div class="mb-6">
+            <h3 class="text-emerald-400 font-bold mb-2">위탁 관리 서비스</h3>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-black">월 1만원</span>
+            </div>
+            <p class="text-slate-400 text-sm mt-2">정상가 월 2만원 (50% 할인 중)</p>
+          </div>
+          <ul class="space-y-4 mb-8 flex-grow">
+            <li class="flex items-start gap-3 text-sm text-slate-200">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+              SBC 기기 당사 위탁 운영
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-200">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+              24/7 업타임 모니터링
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-200">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+              보안 패치 및 고스트 업데이트
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-200">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+              일 1회 DB/콘텐츠 백업 대행
+            </li>
+          </ul>
+          <button 
+            onclick="tciScrollToContact()"
+            class="w-full py-4 rounded-xl font-bold transition-all bg-emerald-400 text-slate-900 hover:bg-emerald-300 shadow-lg shadow-emerald-400/20"
+          >
+            위탁 운영 맡기기
+          </button>
+        </div>
+        <!-- 포워딩 서비스 카드 -->
+        <div class="relative p-8 rounded-3xl flex flex-col h-full transition-all duration-300 bg-slate-900/50 border border-white/10 hover:border-white/20">
+          <div class="mb-6">
+            <h3 class="text-emerald-400 font-bold mb-2">포워딩 서비스</h3>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-black">월 5천원</span>
+            </div>
+            <p class="text-slate-400 text-sm mt-2">정상가 월 1만원 (50% 할인 중)</p>
+          </div>
+          <ul class="space-y-4 mb-8 flex-grow">
+            <li class="flex items-start gap-3 text-sm text-slate-200">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+              자택/사무실 직접 보관 케이스
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-200">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+              Cloudflare 터널 유지 관리
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-200">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+              원격 기술 지원 제공
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-200">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+              텔레그램 상태 알림 연동
+            </li>
+          </ul>
+          <button 
+            onclick="tciScrollToContact()"
+            class="w-full py-4 rounded-xl font-bold transition-all bg-white/10 text-white hover:bg-white/20"
+          >
+            직접 운영 문의
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ 섹션 -->
+  <section id="faq" class="py-24 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-5xl font-black text-center mb-16">자주 묻는 질문</h2>
+      <div class="space-y-2" id="faq-container">
+        <!-- FAQ 항목들이 JavaScript로 동적 생성됩니다 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 문의 폼 섹션 -->
+  <section id="contact" class="py-24 px-6 bg-emerald-400 text-slate-900">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-black mb-4">지금 바로 시작하세요</h2>
+        <p class="text-slate-800 font-medium">상담 신청을 남겨주시면 영업시간 내 빠르게 연락드리겠습니다.</p>
+      </div>
+      
+      <form id="contact-form" class="bg-white p-8 md:p-12 rounded-[2rem] shadow-2xl grid md:grid-cols-2 gap-6">
+        <div class="space-y-2">
+          <label class="text-sm font-bold text-slate-500 flex items-center gap-2 px-1">
+            <i data-lucide="user" class="w-4 h-4"></i> 성함 <span class="text-red-500">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="tciFormName"
+            required
+            class="w-full px-5 py-4 bg-slate-50 border-0 rounded-2xl focus:ring-2 focus:ring-emerald-400 transition-all outline-none" 
+            placeholder="홍길동"
+          />
+        </div>
+        <div class="space-y-2">
+          <label class="text-sm font-bold text-slate-500 flex items-center gap-2 px-1">
+            <i data-lucide="mail" class="w-4 h-4"></i> 이메일 <span class="text-red-500">*</span>
+          </label>
+          <input 
+            type="email" 
+            id="tciFormEmail"
+            required
+            class="w-full px-5 py-4 bg-slate-50 border-0 rounded-2xl focus:ring-2 focus:ring-emerald-400 transition-all outline-none" 
+            placeholder="example@email.com"
+          />
+        </div>
+        <div class="space-y-2">
+          <label class="text-sm font-bold text-slate-500 flex items-center gap-2 px-1">
+            <i data-lucide="smartphone" class="w-4 h-4"></i> 연락처 <span class="text-red-500">*</span>
+          </label>
+          <input 
+            type="tel" 
+            id="tciFormPhone"
+            required
+            class="w-full px-5 py-4 bg-slate-50 border-0 rounded-2xl focus:ring-2 focus:ring-emerald-400 transition-all outline-none" 
+            placeholder="010-0000-0000"
+          />
+        </div>
+        <div class="space-y-2">
+          <label class="text-sm font-bold text-slate-500 flex items-center gap-2 px-1">
+            <i data-lucide="globe" class="w-4 h-4"></i> 희망 도메인
+          </label>
+          <input 
+            type="text" 
+            id="tciFormDomain"
+            class="w-full px-5 py-4 bg-slate-50 border-0 rounded-2xl focus:ring-2 focus:ring-emerald-400 transition-all outline-none" 
+            placeholder="mybrand.com"
+          />
+        </div>
+        <div class="md:col-span-2 space-y-2">
+          <label class="text-sm font-bold text-slate-500 flex items-center gap-2 px-1">
+            <i data-lucide="message-square" class="w-4 h-4"></i> 문의 사항
+          </label>
+          <textarea 
+            id="tciFormMessage"
+            rows="4" 
+            class="w-full px-5 py-4 bg-slate-50 border-0 rounded-2xl focus:ring-2 focus:ring-emerald-400 transition-all outline-none resize-none" 
+            placeholder="궁금하신 내용을 자유롭게 적어주세요."
+          ></textarea>
+        </div>
+        
+        <div class="md:col-span-2">
+          <div id="tciFormStatus" class="mb-6 hidden p-4 rounded-xl text-center font-bold"></div>
+          <button 
+            type="submit" 
+            id="tciSubmitButton"
+            class="w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-xl hover:bg-slate-800 transition-all"
+          >
+            상담 신청 보내기
+          </button>
+        </div>
+      </form>
+      <p class="mt-8 text-slate-800 text-sm font-bold">이 페이지는 실제 SBC를 서버로 사용하여 운영되고 있습니다.</p>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer class="bg-slate-950 py-12 px-6 border-t border-white/5">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 bg-emerald-400 rounded-lg flex items-center justify-center">
+          <i data-lucide="server" class="text-slate-900 w-5 h-5"></i>
+        </div>
+        <span class="text-lg font-black tracking-tighter">SBC GHOST HOSTING</span>
+      </div>
+      <p class="text-slate-500 text-sm" id="tciCopyrightYear">© 2024 SBC Ghost Hosting. All rights reserved.</p>
+      <div class="flex gap-6 text-sm text-slate-400">
+        <a href="#" class="hover:text-emerald-400">이용약관</a>
+        <a href="#" class="hover:text-emerald-400">개인정보처리방침</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 상수 데이터 정의
+    const tciThemes = [
+      { id: 1, name: 'Source', desc: 'Ghost 공식 최신 기본 테마. 뉴스/매거진/뉴스레터 범용.', tag: '무료', img: '/ghost_img/source.jpg', link: 'https://ghost.org/themes/source/' },
+      { id: 2, name: 'Headline', desc: '뉴스룸/보도자료 허브에 최적화.', tag: '무료', img: '/ghost_img/headline.jpg', link: 'https://ghost.org/themes/headline/' },
+      { id: 3, name: 'Taste', desc: '개인 블로그/브랜드 저널리즘 심플형.', tag: '무료', img: '/ghost_img/taste.jpg', link: 'https://ghost.org/themes/taste/' },
+      { id: 4, name: 'Alto', desc: '콘텐츠 집중형 블로그.', tag: '무료', img: '/ghost_img/alto.jpg', link: 'https://ghost.org/themes/alto/' },
+      { id: 5, name: 'Casper', desc: '이전 기본 테마, 안정적.', tag: '무료', img: '/ghost_img/casper.jpg', link: 'https://ghost.org/themes/casper/' },
+      { id: 6, name: 'Edition', desc: '뉴스레터/블로그 겸용.', tag: '무료', img: '/ghost_img/edition.jpg', link: 'https://ghost.org/themes/edition/' },
+      { id: 7, name: 'London', desc: '미니멀 타이포 중심.', tag: '무료', img: '/ghost_img/london.jpg', link: 'https://ghost.org/themes/london/' },
+      { id: 8, name: 'Dawn', desc: '뉴스레터/랜딩 겸용.', tag: '무료', img: '/ghost_img/dawn.jpg', link: 'https://ghost.org/themes/dawn/' },
+    ];
+
+    const tciFaqs = [
+      {
+        q: "SEO/검색 노출과 광고 수익화(구글 애드센스)가 가능한가요?",
+        a: "네. Ghost는 기본적으로 SEO 친화적 구조(가벼운 마크업, 정돈된 URL, 메타/OG 카드, sitemap.xml 자동 생성)를 갖추고 있어 검색 노출에 유리합니다. 여기에 저희가 Cloudflare 캐시·HTTP/2/3·Brotli·TLS를 적용해 속도/안정성을 보강합니다.",
+        sub: "※ 실제 검색 순위·광고 수익은 콘텐츠 품질/경쟁도 등에 따라 달라질 수 있으나, 기술적 최적화를 통해 노출 가능성을 높여드립니다."
+      },
+      {
+        q: "대용량 트래픽/파일도 가능한가요?",
+        a: "일반 블로그/브랜딩 사이트 수준의 웹 트래픽은 문제 없습니다. 다만 지속적인 대용량 파일 전송·라이브 스트리밍은 Cloudflare 정책에 따라 제한될 수 있으니 별도 상담이 필요합니다."
+      },
+      {
+        q: "나중에 서버를 직접 가져갈 수 있나요?",
+        a: "네. 기기는 고객 소유이며, 원할 때 반출 및 다른 환경으로 이전을 지원합니다. 직접 방문 시 무상 처리되며, 택배 발송 시 비용이 발생할 수 있습니다."
+      },
+      {
+        q: "도메인 소유는 어떻게 되나요?",
+        a: "원활한 서비스를 위해 도메인 구매 시 저희 소유로 대행 구매하고 있습니다. 차후 기관 이전 및 소유권 변경을 원하실 경우 일정 수수료와 함께 이전 조치를 해드립니다."
+      }
+    ];
+
+    // 스크롤 함수들
+    function tciScrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function tciScrollToContact() {
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function tciScrollToPricing() {
+      document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 테마 카드 생성 함수
+    function tciRenderThemes() {
+      const tciContainer = document.getElementById('themes-container');
+      tciContainer.innerHTML = tciThemes.map(theme => `
+        <div class="group bg-slate-900 border border-white/5 rounded-2xl overflow-hidden hover:border-emerald-400/30 transition-all">
+          <div class="relative aspect-[16/10] overflow-hidden bg-slate-800">
+            <img src="${theme.img}" alt="${theme.name}" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500" />
+            <div class="absolute top-3 right-3">
+              <span class="bg-emerald-400 text-slate-900 text-[10px] font-black px-2 py-0.5 rounded uppercase">${theme.tag}</span>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-bold mb-1 flex items-center justify-between group-hover:text-emerald-400 transition-colors">
+              ${theme.name}
+              <a href="${theme.link}" target="_blank" class="opacity-0 group-hover:opacity-100 transition-opacity">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
+            </h3>
+            <p class="text-xs text-slate-500 leading-relaxed line-clamp-2">${theme.desc}</p>
+          </div>
+        </div>
+      `).join('');
+      // 아이콘 초기화
+      lucide.createIcons();
+    }
+
+    // FAQ 항목 생성 함수
+    function tciRenderFaqs() {
+      const tciContainer = document.getElementById('faq-container');
+      tciContainer.innerHTML = tciFaqs.map((faq, idx) => `
+        <div class="border-b border-white/5 last:border-0">
+          <button 
+            onclick="tciToggleFaq(${idx})"
+            class="w-full py-6 flex items-center justify-between text-left hover:text-emerald-300 transition-colors"
+          >
+            <span class="text-lg font-semibold pr-8">${faq.q}</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform tci-faq-icon-${idx}"></i>
+          </button>
+          <div class="overflow-hidden transition-all duration-300 tci-faq-content-${idx} max-h-0 opacity-0">
+            <p class="text-slate-400 leading-relaxed">${faq.a}</p>
+            ${faq.sub ? `<p class="mt-4 text-xs text-slate-500 italic">${faq.sub}</p>` : ''}
+          </div>
+        </div>
+      `).join('');
+      // 아이콘 초기화
+      lucide.createIcons();
+    }
+
+    // FAQ 토글 함수
+    function tciToggleFaq(idx) {
+      const tciContent = document.querySelector(`.tci-faq-content-${idx}`);
+      const tciIcon = document.querySelector(`.tci-faq-icon-${idx}`);
+      const tciIsOpen = tciContent.classList.contains('max-h-[500px]');
+      
+      if (tciIsOpen) {
+        tciContent.classList.remove('max-h-[500px]', 'pb-6', 'opacity-100');
+        tciContent.classList.add('max-h-0', 'opacity-0');
+        tciIcon.style.transform = 'rotate(0deg)';
+      } else {
+        tciContent.classList.remove('max-h-0', 'opacity-0');
+        tciContent.classList.add('max-h-[500px]', 'pb-6', 'opacity-100');
+        tciIcon.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    // 폼 제출 처리 함수
+    async function tciHandleFormSubmit(e) {
+      e.preventDefault();
+      
+      const tciName = document.getElementById('tciFormName').value.trim();
+      const tciEmail = document.getElementById('tciFormEmail').value.trim();
+      const tciPhone = document.getElementById('tciFormPhone').value.trim();
+      const tciDomain = document.getElementById('tciFormDomain').value.trim();
+      const tciMessage = document.getElementById('tciFormMessage').value.trim();
+      const tciStatusDiv = document.getElementById('tciFormStatus');
+      const tciSubmitButton = document.getElementById('tciSubmitButton');
+      
+      // 필수 필드 검증
+      if (!tciName || !tciEmail || !tciPhone) {
+        tciStatusDiv.className = 'mb-6 p-4 rounded-xl text-center font-bold bg-red-100 text-red-700';
+        tciStatusDiv.textContent = '필수 정보를 모두 입력해 주세요.';
+        tciStatusDiv.classList.remove('hidden');
+        return;
+      }
+
+      // 제출 버튼 비활성화
+      tciSubmitButton.disabled = true;
+      tciSubmitButton.classList.add('opacity-50', 'cursor-not-allowed');
+      tciSubmitButton.textContent = '전송 중...';
+
+      // API 호출 시뮬레이션
+      try {
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        // 성공 메시지 표시
+        tciStatusDiv.className = 'mb-6 p-4 rounded-xl text-center font-bold bg-green-100 text-green-700';
+        tciStatusDiv.textContent = '성공적으로 전송되었습니다! 곧 연락드릴게요.';
+        tciStatusDiv.classList.remove('hidden');
+        
+        // 폼 초기화
+        document.getElementById('contact-form').reset();
+      } catch (error) {
+        // 오류 메시지 표시
+        tciStatusDiv.className = 'mb-6 p-4 rounded-xl text-center font-bold bg-red-100 text-red-700';
+        tciStatusDiv.textContent = '전송 중 오류가 발생했습니다. 다시 시도해 주세요.';
+        tciStatusDiv.classList.remove('hidden');
+      } finally {
+        // 제출 버튼 활성화
+        tciSubmitButton.disabled = false;
+        tciSubmitButton.classList.remove('opacity-50', 'cursor-not-allowed');
+        tciSubmitButton.textContent = '상담 신청 보내기';
+      }
+    }
+
+    // 초기화 함수
+    function tciInitialize() {
+      // Lucide 아이콘 초기화
+      lucide.createIcons();
+      
+      // 테마 카드 렌더링
+      tciRenderThemes();
+      
+      // FAQ 항목 렌더링
+      tciRenderFaqs();
+      
+      // 폼 이벤트 리스너 등록
+      document.getElementById('contact-form').addEventListener('submit', tciHandleFormSubmit);
+      
+      // 저작권 연도 업데이트
+      document.getElementById('tciCopyrightYear').textContent = `© ${new Date().getFullYear()} SBC Ghost Hosting. All rights reserved.`;
+    }
+
+    // DOM 로드 완료 시 초기화
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', tciInitialize);
+    } else {
+      tciInitialize();
+    }
+  </script>
+</body>
+</html>
